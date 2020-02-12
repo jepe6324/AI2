@@ -17,7 +17,7 @@ void Grid::Create()
 		for (int j = 0; j < Config::INTERNAL_WIDTH / Config::TILE_SIZE; j++)
 		{
 			Tile* tmp = new Tile;
-			tmp->Create("../Assets/dirt.png", posX, posY, difference, difference);
+			tmp->Create(posX, posY, difference, difference);
 			tiles_.push_back(tmp);
 			posX += difference;
 		}
