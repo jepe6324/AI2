@@ -149,7 +149,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Agent.cpp" />
     <ClCompile Include="Source\DeltaTime.cpp" />
-    <ClCompile Include="Source\Collider.cpp" />
     <ClCompile Include="Source\FSM.cpp" />
     <ClCompile Include="Source\Grid.cc" />
     <ClCompile Include="Source\InputHandler.cpp" />

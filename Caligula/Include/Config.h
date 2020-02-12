@@ -5,8 +5,12 @@ constexpr bool FALSE = false;
 
 struct Config
 {
-	static const int SCREEN_WIDTH = 640;
-	static const int SCREEN_HEIGHT = 480;
+	static const int INTERNAL_WIDTH = 640;
+	static const int INTERNAL_HEIGHT = 480;
+   
+   static const int OUTPUT_WIDTH = 4;
+   static const int OUTPUT_HEIGHT = 4;
+
    static const int TILE_SIZE = 30;
 	static const bool DEBUGRENDER = TRUE;
 };

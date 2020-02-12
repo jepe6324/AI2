@@ -34,13 +34,17 @@ int main(int ac, char** av)
 	if(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) == 0)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not initialize IMG: %s", IMG_GetError());
 
-	SDL_Window* window = SDL_CreateWindow("Pong", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Config::SCREEN_WIDTH, Config::SCREEN_HEIGHT, 0);
+	SDL_Window* window = SDL_CreateWindow("Pong", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Config::OUTPUT_WIDTH, Config::OUTPUT_HEIGHT, 0);
 	if(window == nullptr)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create SDL_Window: %s", SDL_GetError());
 	
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (renderer == nullptr)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create SDL_Renderer: %s", SDL_GetError());
+   
+   float scaleX = Config::OUTPUT_WIDTH / Config::INTERNAL_WIDTH;
+   float scaleY = Config::OUTPUT_HEIGHT / Config::INTERNAL_HEIGHT;
+   SDL_RenderSetScale(renderer, scaleX, scaleY);
 
 	{ // Scope to add limited lifetime for out handlers and game loop
 		SpriteHandler spriteHandler(renderer);
