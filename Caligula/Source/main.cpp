@@ -70,7 +70,10 @@ int main(int ac, char** av)
 			{
 				running = false;
 			}
-			
+
+         std::cout << inputHandler.GetMousePositionX() << std::endl;
+         std::cout << inputHandler.GetMousePositionY() << std::endl;
+
 			// CLEARING SCREEN
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 			SDL_RenderClear(renderer);
@@ -80,7 +83,6 @@ int main(int ac, char** av)
 
 			// PRESENTING TO THE SCREEN
 			SDL_RenderPresent(renderer);
-			SDL_Delay(16);
 		}
 	}
 
