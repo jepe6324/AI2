@@ -11,14 +11,15 @@
 #include "InputHandler.h"
 #include "SpriteHandler.h"
 #include "SoundHandler.h"
+#include "Grid.h"
 #include "Service.h"
 #include "Config.h"
 
 #include "FSM.h"
 #include "TEST_STATE_1.h"
 
-
-
+const float Config::SCALE_HEIGHT = float(Config::OUTPUT_HEIGHT) / float(Config::INTERNAL_HEIGHT);
+const float Config::SCALE_WIDTH = float(Config::OUTPUT_WIDTH) / float(Config::INTERNAL_WIDTH);
 
 int main(int ac, char** av)
 {
@@ -41,25 +42,25 @@ int main(int ac, char** av)
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (renderer == nullptr)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create SDL_Renderer: %s", SDL_GetError());
-   
-   float scaleX = float(Config::OUTPUT_WIDTH) / float(Config::INTERNAL_WIDTH);
-   float scaleY = float(Config::OUTPUT_HEIGHT) / float(Config::INTERNAL_HEIGHT);
-   SDL_RenderSetScale(renderer, scaleX, scaleY);
+
+   SDL_RenderSetScale(renderer, Config::SCALE_WIDTH, Config::SCALE_HEIGHT);
 
 	{ // Scope to add limited lifetime for out handlers and game loop
 		SpriteHandler spriteHandler(renderer);
 		InputHandler inputHandler;
 		SoundHandler soundHandler;
+      Grid grid;
 
 		Service<SpriteHandler>::Set(&spriteHandler);
 		Service<InputHandler>::Set(&inputHandler);
 		Service<SoundHandler>::Set(&soundHandler);
+      Service<Grid>::Set(&grid);
 
 		FSM stateMachine;
 		TEST_STATE_1 stateOne(*renderer);
 		stateMachine.SwitchState(&stateOne);
 
-      
+      Tile* tile = nullptr;
 
 		bool running = true;
 		while (running)
@@ -71,8 +72,24 @@ int main(int ac, char** av)
 				running = false;
 			}
 
-         std::cout << inputHandler.GetMousePositionX() << std::endl;
-         std::cout << inputHandler.GetMousePositionY() << std::endl;
+         if (Config::DEBUGRENDER)
+         {
+            system("cls");
+            Vector2 mousePos;
+            mousePos.x_ = inputHandler.GetMousePositionX();
+            mousePos.y_ = inputHandler.GetMousePositionY();
+
+            mousePos = mousePos / Config::TILE_SIZE;
+            mousePos.x_ /= Config::SCALE_WIDTH;
+            mousePos.y_ /= Config::SCALE_HEIGHT;
+
+            if (tile != nullptr)
+               tile->borderColor_ = { 255,255,255,255 };
+
+            tile = grid.GetTile(mousePos);
+            if (tile != nullptr)
+               tile->borderColor_ = { 255,5,0,255 };
+         }
 
 			// CLEARING SCREEN
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);

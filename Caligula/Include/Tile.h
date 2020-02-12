@@ -18,6 +18,8 @@ struct Tile {
 	Sprite* currentSprite_;
 	TileType currentType_;
 
+   SDL_Color borderColor_;
+
 	void Create(int xPos, int yPos, int height, int width);
 	void Render(SDL_Renderer* renderer_);
 };

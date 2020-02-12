@@ -2,7 +2,6 @@
 
 #include "State.h"
 #include <array>
-#include "Grid.h"
 #include "DeltaTime.h"
 
 
@@ -14,7 +13,6 @@ class TEST_STATE_1 : public State
 {
 	SDL_Renderer* m_renderer;
 	Sound* m_sound;
-	Grid grid_;
    DeltaTime deltaTime_;
 
 public:

@@ -33,6 +33,22 @@ void Grid::Render(SDL_Renderer* renderer_) {
 	}
 }
 
+Tile* Grid::GetTile(int x, int y)
+{
+   int index = GetTileIndex(x, y);
+
+   if (index == -1)
+   {
+      return nullptr;
+   }
+   return tiles_.at(index);
+}
+
+Tile* Grid::GetTile(Vector2 pos)
+{
+   return GetTile(pos.x_, pos.y_);
+}
+
 int Grid::GetTileIndex(int x, int y)
 {
    int index = 0;

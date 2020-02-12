@@ -2,6 +2,7 @@
 #include "Service.h"
 #include "SoundHandler.h"
 #include "InputHandler.h"
+#include "Grid.h"
 #include "Sound.h"
 #include <iostream>
 #include "Config.h"
@@ -17,14 +18,14 @@ TEST_STATE_1::TEST_STATE_1(SDL_Renderer& p_renderer) : m_renderer(&p_renderer)
 void TEST_STATE_1::Enter()
 {
 	srand(time(NULL));
-	grid_.Create();
+   Service<Grid>::Get()->Create();
 	//int size = grid_.tiles_.size();
 }
 
 bool TEST_STATE_1::Update()
 {
    deltaTime_.Update();
-   grid_.Render(m_renderer);
+   Service<Grid>::Get()->Render(m_renderer);
 	return true;
 }
 

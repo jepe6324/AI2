@@ -11,6 +11,11 @@ struct Config
    static const int OUTPUT_WIDTH = 960;
    static const int OUTPUT_HEIGHT = 720;
 
+
+
+   static const float SCALE_WIDTH;
+   static const float SCALE_HEIGHT;
+
    static const int TILE_SIZE = 30;
-	static const bool DEBUGRENDER = FALSE;
+	static const bool DEBUGRENDER = TRUE;
 };

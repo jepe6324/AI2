@@ -44,10 +44,10 @@ void Agent::Move(Vector2 newPos) {
    // These lines should be used when moving the agents
    Vector2 oldPos = position_;
 
-   if (grid_->GetTileIndex(newPos) != -1)
+   /*if (grid_->GetTileIndex(newPos) != -1) // This is going to have to use TileHandler instead
    {
       position_ = newPos;
-   }
+   }*/
 }
 
 void Agent::MoveInDirection(Vector2 direction)

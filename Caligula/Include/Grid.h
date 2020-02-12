@@ -13,9 +13,12 @@ struct Grid {
 	void Create();
 	void Render(SDL_Renderer* renderer_);
 
+   Tile* GetTile(int x, int y);
+   Tile* GetTile(Vector2 pos);
    int GetTileIndex(int x, int y);
    int GetTileIndex(Vector2 pos);
    Vector2 GetTilePos(int index);
+
 	std::vector<Tile*> tiles_;
 };
 
