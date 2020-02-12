@@ -42,8 +42,8 @@ int main(int ac, char** av)
 	if (renderer == nullptr)
 		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create SDL_Renderer: %s", SDL_GetError());
    
-   float scaleX = Config::OUTPUT_WIDTH / Config::INTERNAL_WIDTH;
-   float scaleY = Config::OUTPUT_HEIGHT / Config::INTERNAL_HEIGHT;
+   float scaleX = float(Config::OUTPUT_WIDTH) / float(Config::INTERNAL_WIDTH);
+   float scaleY = float(Config::OUTPUT_HEIGHT) / float(Config::INTERNAL_HEIGHT);
    SDL_RenderSetScale(renderer, scaleX, scaleY);
 
 	{ // Scope to add limited lifetime for out handlers and game loop
