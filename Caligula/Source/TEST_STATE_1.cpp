@@ -18,7 +18,7 @@ void TEST_STATE_1::Enter()
 {
 	srand(time(NULL));
 	grid_.Create();
-	int size = grid_.tiles_.size();
+	//int size = grid_.tiles_.size();
 }
 
 bool TEST_STATE_1::Update()
