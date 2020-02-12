@@ -57,6 +57,7 @@ int main(int ac, char** av)
 
 		FSM stateMachine;
 		TEST_STATE_1 stateOne(*renderer);
+		stateMachine.SwitchState(&stateOne);
 
       
 
