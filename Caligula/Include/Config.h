@@ -12,5 +12,5 @@ struct Config
    static const int OUTPUT_HEIGHT = 720;
 
    static const int TILE_SIZE = 30;
-	static const bool DEBUGRENDER = TRUE;
+	static const bool DEBUGRENDER = FALSE;
 };

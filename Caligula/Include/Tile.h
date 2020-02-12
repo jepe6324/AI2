@@ -6,13 +6,19 @@
 #include <SDL.h>
 #include "Sprite.h"
 
-struct Grass;
-
 struct Tile {
+	enum class TileType
+	{
+		STARS,
+		BLOCKED,
+		TRADING,
+		SPACESHIP,
+	};
 	SDL_Rect bounds_;
 	Sprite* currentSprite_;
+	TileType currentType_;
 
-	void Create(const char* p_textureFilePath,int xPos, int yPos, int height, int width);
+	void Create(int xPos, int yPos, int height, int width);
 	void Render(SDL_Renderer* renderer_);
 };
 

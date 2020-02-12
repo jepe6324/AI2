@@ -2,15 +2,26 @@
 #include "Service.h"
 #include "SpriteHandler.h"
 #include "Config.h"
+#include "Random.h"
 
-void Tile::Create(const char* p_textureFilePath, int xPos, int yPos, int height, int width)
+void Tile::Create(int xPos, int yPos, int height, int width)
 {
 	bounds_.x = xPos;
 	bounds_.y = yPos;
 	bounds_.h = height;
 	bounds_.w = width;
 
-	currentSprite_ = Service<SpriteHandler>::Get()->CreateSprite(p_textureFilePath, 0, 0, height, width);
+	int blocked = Random::Rand(-1,4);
+	if (blocked <= 0)
+	{
+		currentType_ = TileType::BLOCKED;
+		currentSprite_ = Service<SpriteHandler>::Get()->CreateSprite("../Assets/blocked.png", 0, 0, height, width);
+	}
+	else
+	{
+		currentType_ = TileType::STARS;
+		currentSprite_ = Service<SpriteHandler>::Get()->CreateSprite("../Assets/stars.png", 0, 0, height, width);
+	}
 }
 
 void Tile::Render(SDL_Renderer* renderer_)
