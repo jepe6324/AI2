@@ -37,7 +37,7 @@ void Agent::Update(float dt) // As milliseconds
 {
    Sense(); // Ad timers to make sure these happen at a proper time
    Decide();
-   currentState_->Update();
+   currentState_->Update(dt);
 }
 
 void Agent::Move(Vector2 newPos) {

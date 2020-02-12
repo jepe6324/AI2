@@ -148,44 +148,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Agent.cpp" />
-    <ClCompile Include="Source\BreedState.cc" />
     <ClCompile Include="Source\DeltaTime.cpp" />
     <ClCompile Include="Source\Collider.cpp" />
-    <ClCompile Include="Source\CollisionHandler.cpp" />
     <ClCompile Include="Source\FSM.cpp" />
-    <ClCompile Include="Source\Grass.cc" />
     <ClCompile Include="Source\Grid.cc" />
     <ClCompile Include="Source\InputHandler.cpp" />
     <ClCompile Include="Source\Keyboard.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mouse.cpp" />
-    <ClCompile Include="Source\PursueState.cc" />
     <ClCompile Include="Source\Random.cc" />
-    <ClCompile Include="Source\ScaredState.cc" />
     <ClCompile Include="Source\Sound.cpp" />
     <ClCompile Include="Source\SoundHandler.cpp" />
     <ClCompile Include="Source\Sprite.cpp" />
     <ClCompile Include="Source\SpriteHandler.cpp" />
     <ClCompile Include="Source\TEST_STATE_1.cpp" />
     <ClCompile Include="Source\Tile.cc" />
-    <ClCompile Include="Source\WanderState.cc" />
+    <ClCompile Include="Source\Timer.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Agent.h" />
-    <ClInclude Include="Include\BreedState.h" />
-    <ClInclude Include="Include\Collider.h" />
-    <ClInclude Include="Include\CollisionHandler.h" />
     <ClInclude Include="Include\Config.h" />
-    <ClInclude Include="Include\Entity.h" />
     <ClInclude Include="Include\FSM.h" />
-    <ClInclude Include="Include\Grass.h" />
     <ClInclude Include="Include\Grid.h" />
     <ClInclude Include="Include\InputHandler.h" />
     <ClInclude Include="Include\Keyboard.h" />
     <ClInclude Include="Include\Mouse.h" />
-    <ClInclude Include="Include\PursueState.h" />
     <ClInclude Include="Include\Random.h" />
-    <ClInclude Include="Include\ScaredState.h" />
     <ClInclude Include="Include\Service.h" />
     <ClInclude Include="Include\Sound.h" />
     <ClInclude Include="Include\SoundHandler.h" />
@@ -197,7 +185,6 @@
     <ClInclude Include="Include\DeltaTime.h" />
     <ClInclude Include="Include\Timer.h" />
     <ClInclude Include="Include\Vector.h" />
-    <ClInclude Include="Include\WanderState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,7 +8,6 @@
 #include <SDL_mixer.h>
 #include <SDL_image.h>
 
-#include "CollisionHandler.h"
 #include "InputHandler.h"
 #include "SpriteHandler.h"
 #include "SoundHandler.h"
@@ -45,19 +44,15 @@ int main(int ac, char** av)
 
 	{ // Scope to add limited lifetime for out handlers and game loop
 		SpriteHandler spriteHandler(renderer);
-		CollisionHandler collisionHandler;
 		InputHandler inputHandler;
 		SoundHandler soundHandler;
 
 		Service<SpriteHandler>::Set(&spriteHandler);
-		Service<CollisionHandler>::Set(&collisionHandler);
 		Service<InputHandler>::Set(&inputHandler);
 		Service<SoundHandler>::Set(&soundHandler);
 
 		FSM stateMachine;
 		TEST_STATE_1 stateOne(*renderer);
-		stateMachine.AddState(&stateOne);
-		stateMachine.SetState(&stateOne);
 
       
 

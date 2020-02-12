@@ -11,9 +11,6 @@ void Tile::Create(const char* p_textureFilePath, int xPos, int yPos, int height,
 	bounds_.w = width;
 
 	currentSprite_ = Service<SpriteHandler>::Get()->CreateSprite(p_textureFilePath, 0, 0, height, width);
-	grass_ = nullptr;
-   agents_[0] = nullptr;
-   agents_[1] = nullptr;
 }
 
 void Tile::Render(SDL_Renderer* renderer_)

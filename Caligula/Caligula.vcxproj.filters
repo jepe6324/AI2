@@ -48,9 +48,6 @@
     <ClCompile Include="Source\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CollisionHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\FSM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -87,42 +84,21 @@
     <ClCompile Include="Source\Grid.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Grass.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\DeltaTime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\WanderState.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Random.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\PursueState.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\ScaredState.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BreedState.cc">
+    <ClCompile Include="Source\Timer.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Collider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\CollisionHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\FSM.h">
@@ -167,31 +143,16 @@
     <ClInclude Include="Include\Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Grass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\DeltaTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\WanderState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Random.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\PursueState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\ScaredState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\BreedState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

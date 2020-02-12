@@ -1,7 +1,6 @@
 #include "TEST_STATE_1.h"
 #include "Service.h"
 #include "SoundHandler.h"
-#include "CollisionHandler.h"
 #include "InputHandler.h"
 #include "Sound.h"
 #include <iostream>
