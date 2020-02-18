@@ -9,10 +9,11 @@
 struct Tile {
 	enum class TileType
 	{
-		STARS,
+		EMPTY,
 		BLOCKED,
 		TRADING,
 		SPACESHIP,
+		STAR,
 	};
 	SDL_Rect bounds_;
 	Sprite* currentSprite_;
@@ -22,6 +23,7 @@ struct Tile {
 
 	void Create(int xPos, int yPos, int height, int width);
 	void Render(SDL_Renderer* renderer_);
+	void SwitchTileType(TileType newType);
 };
 
 #endif // !TILE_H_INCLUDED

@@ -49,8 +49,10 @@ void Player::SelectTile()
    switch (selected_->currentType_)
    {
    case Tile::TileType::BLOCKED:
+		selected_->SwitchTileType(Tile::TileType::EMPTY);
       break;
    case Tile::TileType::EMPTY:
+		selected_->SwitchTileType(Tile::TileType::BLOCKED);
       break;
    case Tile::TileType::TRADING:
       break;
