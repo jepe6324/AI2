@@ -10,13 +10,15 @@ struct Tile;
 struct Player
 {
    Tile* hovered_;
-   Tile* selected_;
+   Tile* tileToMove_;
    Vector2 mousePos_;
 
    void Update();
    void UpdateMouse();
    void HoverTile();
    void SelectTile();
+   void SwitchTiles(Tile* lhs, Tile* rhs);
+   void HandleTile(Tile* selected);
 
 };
 

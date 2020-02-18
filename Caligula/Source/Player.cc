@@ -31,39 +31,73 @@ void Player::UpdateMouse()
 
 void Player::HoverTile()
 {
-   if (hovered_ != nullptr && hovered_ != selected_)
+   if (hovered_ != nullptr && hovered_ != tileToMove_)
       hovered_->borderColor_ = { 255,255,255,255 };
 
    hovered_ = Service<Grid>::Get()->GetTile(mousePos_);
-   if (hovered_ != nullptr && hovered_ != selected_)
+   if (hovered_ != nullptr && hovered_ != tileToMove_)
       hovered_->borderColor_ = { 255,5,0,255 };
 }
 
 void Player::SelectTile()
 {
-   if (selected_ != nullptr)
-      selected_->borderColor_ = { 255,255,255,255 };
+   Tile* selected = nullptr;
 
-   selected_ = Service<Grid>::Get()->GetTile(mousePos_);
+   selected = Service<Grid>::Get()->GetTile(mousePos_);
 
-   switch (selected_->currentType_)
-   {
-   case Tile::TileType::BLOCKED:
-		selected_->SwitchTileType(Tile::TileType::EMPTY);
-      break;
-   case Tile::TileType::EMPTY:
-		selected_->SwitchTileType(Tile::TileType::BLOCKED);
-      break;
-   case Tile::TileType::TRADING:
-      break;
-   case Tile::TileType::SPACESHIP:
-      break;
-   case Tile::TileType::STAR:
-      break;
+   if (selected == nullptr)
+      return;
 
-   default:
-      break;
+   if (tileToMove_ != nullptr){
+      tileToMove_->borderColor_ = { 255,255,255,255 };
+      
+      HandleTile(selected);
    }
-   if (selected_ != nullptr)
-      selected_->borderColor_ = { 0,255,0,255 };
+   else
+   {
+      switch (selected->currentType_)
+      {
+      case Tile::TileType::BLOCKED:
+         selected->SwitchTileType(Tile::TileType::EMPTY);
+         break;
+      case Tile::TileType::EMPTY:
+         selected->SwitchTileType(Tile::TileType::BLOCKED);
+         break;
+      default:
+         HandleTile(selected);
+         break;
+      }
+   }
+   
+   if (tileToMove_ != nullptr)
+      tileToMove_->borderColor_ = { 0,255,0,255 };
+}
+
+void Player::SwitchTiles(Tile* lhs, Tile* rhs)
+{
+   Tile::TileType tmp = lhs->currentType_;
+   
+   lhs->SwitchTileType(rhs->currentType_);
+   rhs->SwitchTileType(tmp);
+}
+
+void Player::HandleTile(Tile* selected)
+{
+   if (tileToMove_ != nullptr)
+   {
+      
+      if (tileToMove_->currentType_ == selected->currentType_)
+      {
+         tileToMove_ = nullptr;
+      }
+      else
+      {
+         SwitchTiles(selected, tileToMove_);
+         tileToMove_ = nullptr;
+      }
+   }
+   else
+   {
+      tileToMove_ = selected;
+   }
 }

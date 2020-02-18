@@ -1,7 +1,8 @@
 MADE IN TEAMWORK WITH FELIX
 
-Change tile property = left mouse button // Loops through tile properties
-Start Simulation = Spacebar
+Left click a tile to interact with it. Currently hovered tile is red.
+If the tile is empty or blocked it switches to the other.
+If the tile is a special tile it gets selected and turns green,
+you can then press the tile you want to move it too.
 
-if mouse is on tile = yellow;
-when moves off tile = white;
+// NOTE: start button

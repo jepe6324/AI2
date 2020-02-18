@@ -19,6 +19,8 @@ struct Grid {
    int GetTileIndex(Vector2 pos);
    Vector2 GetTilePos(int index);
 
+   void SpawnSpecialTile(Tile::TileType type);
+
 	std::vector<Tile*> tiles_;
 };
 

@@ -2,6 +2,7 @@
 #include "Grid.h"
 #include "Config.h"
 #include <iostream>
+#include "Random.h"
 
 Grid::Grid()
 {
@@ -24,6 +25,11 @@ void Grid::Create()
 		posY += difference;
 		posX = 0;
 	}
+
+   SpawnSpecialTile(Tile::TileType::STAR);
+   SpawnSpecialTile(Tile::TileType::TRADING);
+   SpawnSpecialTile(Tile::TileType::SPACESHIP);
+
 };
 
 void Grid::Render(SDL_Renderer* renderer_) {
@@ -86,4 +92,19 @@ Vector2 Grid::GetTilePos(int index)
    returnVector.x_ = index % maxX;
    returnVector.y_ = index / maxX;
    return returnVector;
+}
+
+void Grid::SpawnSpecialTile(Tile::TileType type)
+{
+   while (true)
+   {
+      int index = Random::Rand(0, tiles_.size() - 1);
+
+      if (tiles_.at(index)->currentType_ == Tile::TileType::BLOCKED ||
+          tiles_.at(index)->currentType_ == Tile::TileType::EMPTY)
+      {
+         tiles_.at(index)->SwitchTileType(type);
+         return;
+      }
+   }
 }
