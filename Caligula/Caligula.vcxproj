@@ -155,6 +155,7 @@
     <ClCompile Include="Source\Keyboard.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mouse.cpp" />
+    <ClCompile Include="Source\Player.cc" />
     <ClCompile Include="Source\Random.cc" />
     <ClCompile Include="Source\Sound.cpp" />
     <ClCompile Include="Source\SoundHandler.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Include\InputHandler.h" />
     <ClInclude Include="Include\Keyboard.h" />
     <ClInclude Include="Include\Mouse.h" />
+    <ClInclude Include="Include\Player.h" />
     <ClInclude Include="Include\Random.h" />
     <ClInclude Include="Include\Service.h" />
     <ClInclude Include="Include\Sound.h" />

@@ -23,7 +23,7 @@ bool InputHandler::IsMouseButtonDown(unsigned int p_button)
 
 bool InputHandler::IsMouseButtonPressed(unsigned int p_button)
 {
-	return false;
+	return m_mouse.IsButtonPressed(p_button);
 }
 
 bool InputHandler::IsMouseButtonReleased(unsigned int p_button)

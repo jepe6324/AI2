@@ -45,7 +45,7 @@ int main(int ac, char** av)
 
    SDL_RenderSetScale(renderer, Config::SCALE_WIDTH, Config::SCALE_HEIGHT);
 
-	{ // Scope to add limited lifetime for out handlers and game loop
+	{ // Scope too add limited lifetime for out handlers and game loop
 		SpriteHandler spriteHandler(renderer);
 		InputHandler inputHandler;
 		SoundHandler soundHandler;
@@ -60,8 +60,6 @@ int main(int ac, char** av)
 		TEST_STATE_1 stateOne(*renderer);
 		stateMachine.SwitchState(&stateOne);
 
-      Tile* tile = nullptr;
-
 		bool running = true;
 		while (running)
 		{
@@ -71,25 +69,6 @@ int main(int ac, char** av)
 			{
 				running = false;
 			}
-
-         if (Config::DEBUGRENDER)
-         {
-            system("cls");
-            Vector2 mousePos;
-            mousePos.x_ = inputHandler.GetMousePositionX();
-            mousePos.y_ = inputHandler.GetMousePositionY();
-
-            mousePos = mousePos / Config::TILE_SIZE;
-            mousePos.x_ /= Config::SCALE_WIDTH;
-            mousePos.y_ /= Config::SCALE_HEIGHT;
-
-            if (tile != nullptr)
-               tile->borderColor_ = { 255,255,255,255 };
-
-            tile = grid.GetTile(mousePos);
-            if (tile != nullptr)
-               tile->borderColor_ = { 255,5,0,255 };
-         }
 
 			// CLEARING SCREEN
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);

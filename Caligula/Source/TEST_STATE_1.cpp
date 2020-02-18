@@ -25,6 +25,8 @@ void TEST_STATE_1::Enter()
 bool TEST_STATE_1::Update()
 {
    deltaTime_.Update();
+   player_.Update();
+
    Service<Grid>::Get()->Render(m_renderer);
 	return true;
 }
