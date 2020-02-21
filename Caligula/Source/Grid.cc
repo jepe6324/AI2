@@ -145,6 +145,14 @@ void Grid::ChangeTileColour(Vector2 pos, SDL_Color color)
    GetTile(pos)->borderColor_ = color;
 }
 
+void Grid::ClearTileColour()
+{
+   for (auto tile : tiles_)
+   {
+      tile->borderColor_= { 255,255,255,255 };
+   }
+}
+
 void Grid::SpawnSpecialTile(Tile::TileType type)
 {
    while (true)

@@ -28,6 +28,8 @@ bool TEST_STATE_1::Update()
    deltaTime_.Update();
    player_.Update();
 
+   Service<Grid>::Get()->ClearTileColour();
+
 	Vector2 ship = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
 	Vector2 star = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR);
 

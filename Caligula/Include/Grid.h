@@ -23,8 +23,9 @@ struct Grid {
    // A* thing
    std::vector<Vector2> GetAdjacentTilePositions(Vector2 pos);
 
-   // thing
+   // color thing
    void ChangeTileColour(Vector2 pos, SDL_Color color);
+   void ClearTileColour();
 
    void SpawnSpecialTile(Tile::TileType type);
    Vector2 GetSpecialTilePos(Tile::TileType type); // Will be wacky if you send in non special tile.

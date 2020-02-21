@@ -119,7 +119,7 @@ AStarNode* AStar::GetNextNode()
 			{
 				tmp = open_.at(i);
 			}
-			else if (tmp->f_ == open_.at(i)->f_ && tmp->h_ > open_.at(i)->h_)
+			else if (tmp->f_ == open_.at(i)->f_ && tmp->g_ > open_.at(i)->g_)
 			{
 				tmp = open_.at(i);
 			}
