@@ -20,7 +20,6 @@ void TEST_STATE_1::Enter()
 	srand(time(NULL));
    Service<Grid>::Get()->Create();
 
-   aStar_.PathFindStart({ 0,0 }, { 5,5 });
 
 	//int size = grid_.tiles_.size();
 }
@@ -29,6 +28,8 @@ bool TEST_STATE_1::Update()
 {
    deltaTime_.Update();
    player_.Update();
+
+   aStar_.PathFindStart({ 5,5 }, { 10,10 });
 
    Service<Grid>::Get()->Render(m_renderer);
 	return true;
