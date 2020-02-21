@@ -20,7 +20,6 @@ void TEST_STATE_1::Enter()
 	srand(time(NULL));
    Service<Grid>::Get()->Create();
 
-
 	//int size = grid_.tiles_.size();
 }
 
@@ -29,7 +28,10 @@ bool TEST_STATE_1::Update()
    deltaTime_.Update();
    player_.Update();
 
-   aStar_.PathFindStart({ 5,5 }, { 10,10 });
+   Vector2 ship = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
+   Vector2 star = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR);
+
+   aStar_.PathFindStart(ship, star);
 
    Service<Grid>::Get()->Render(m_renderer);
 	return true;

@@ -27,6 +27,7 @@ struct Grid {
    void ChangeTileColour(Vector2 pos, SDL_Color color);
 
    void SpawnSpecialTile(Tile::TileType type);
+   Vector2 GetSpecialTilePos(Tile::TileType type); // Will be wacky if you send in non special tile.
 
 	std::vector<Tile*> tiles_;
 };

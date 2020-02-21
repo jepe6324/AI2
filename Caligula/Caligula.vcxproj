@@ -147,8 +147,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Include\AStar.cpp" />
     <ClCompile Include="Source\Agent.cpp" />
+    <ClCompile Include="Source\AStar.cc" />
     <ClCompile Include="Source\DeltaTime.cpp" />
     <ClCompile Include="Source\FSM.cpp" />
     <ClCompile Include="Source\Grid.cc" />
