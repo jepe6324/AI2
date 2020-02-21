@@ -137,7 +137,7 @@ std::vector<Vector2> Grid::GetAdjacentTilePositions(Vector2 pos)
       tiles.push_back(tmp);
    }
 
-   return std::vector<Vector2>();
+   return tiles;
 }
 
 void Grid::ChangeTileColour(Vector2 pos, SDL_Color color)

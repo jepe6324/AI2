@@ -20,7 +20,7 @@ void TEST_STATE_1::Enter()
 	srand(time(NULL));
    Service<Grid>::Get()->Create();
 
-   aStar_.PathFindStart({ 0,0 }, { 5,5 });
+   aStar_.PathFindStart({ 0,0 }, { 1,1 });
 
 	//int size = grid_.tiles_.size();
 }

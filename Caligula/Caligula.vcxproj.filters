@@ -96,7 +96,7 @@
     <ClCompile Include="Source\Player.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Include\AStar.cpp">
+    <ClCompile Include="Source\AStar.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
