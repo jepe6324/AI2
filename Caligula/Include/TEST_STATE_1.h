@@ -18,6 +18,7 @@ class TEST_STATE_1 : public State
    DeltaTime deltaTime_;
    Player player_;
    AStar aStar_;
+	std::vector<Vector2> path_;
 
 public:
 	TEST_STATE_1(SDL_Renderer& p_renderer); 

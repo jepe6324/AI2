@@ -36,10 +36,17 @@ std::vector<Vector2> AStar::PathFindStart(Vector2 currentPos, Vector2 goalPos)
 
 	PathFind(&path, startNode);
 
+	for (auto it : open_)
+	{
+		delete it;
+	}
+
+	for (auto it : closed_)
+	{
+		delete it;
+	}
    open_.clear();
    closed_.clear();
-   delete startNode;
-
 	return path;
 }
 

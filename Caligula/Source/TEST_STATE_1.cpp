@@ -28,10 +28,10 @@ bool TEST_STATE_1::Update()
    deltaTime_.Update();
    player_.Update();
 
-   Vector2 ship = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
-   Vector2 star = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR);
+	Vector2 ship = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
+	Vector2 star = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR);
 
-   aStar_.PathFindStart(ship, star);
+	path_ = aStar_.PathFindStart(ship, star);
 
    Service<Grid>::Get()->Render(m_renderer);
 	return true;
