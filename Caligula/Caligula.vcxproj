@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Include\AStar.cpp" />
     <ClCompile Include="Source\Agent.cpp" />
     <ClCompile Include="Source\DeltaTime.cpp" />
     <ClCompile Include="Source\FSM.cpp" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Agent.h" />
+    <ClInclude Include="Include\AStar.h" />
     <ClInclude Include="Include\Config.h" />
     <ClInclude Include="Include\FSM.h" />
     <ClInclude Include="Include\Grid.h" />

@@ -46,6 +46,9 @@ struct Vector2 {
 	bool operator!=(Vector2 other) {
 		return x_ == other.x_ && y_ == other.y_ ? x_ != other.x_ && y_ != other.y_ : false;
 	}
+   bool operator==(Vector2 other) {
+      return x_ == other.x_ && y_ == other.y_;
+   }
 };
 
 

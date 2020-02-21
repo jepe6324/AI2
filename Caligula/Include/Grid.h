@@ -18,6 +18,13 @@ struct Grid {
    int GetTileIndex(int x, int y);
    int GetTileIndex(Vector2 pos);
    Vector2 GetTilePos(int index);
+   bool IsBlocked(Vector2 pos);
+
+   // A* thing
+   std::vector<Vector2> GetAdjacentTilePositions(Vector2 pos);
+
+   // thing
+   void ChangeTileColour(Vector2 pos, SDL_Color color);
 
    void SpawnSpecialTile(Tile::TileType type);
 

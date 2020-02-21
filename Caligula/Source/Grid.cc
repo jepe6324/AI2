@@ -94,6 +94,57 @@ Vector2 Grid::GetTilePos(int index)
    return returnVector;
 }
 
+bool Grid::IsBlocked(Vector2 pos)
+{
+   Tile* tmp = GetTile(pos);
+   if (tmp != nullptr)
+   {
+      if (tmp->currentType_ != Tile::TileType::BLOCKED)
+      {
+         return false;
+      }
+   }
+   return true;
+}
+
+std::vector<Vector2> Grid::GetAdjacentTilePositions(Vector2 pos)
+{
+   std::vector<Vector2> tiles;
+   
+   Vector2 tmp = pos;
+   tmp.x_--;
+   if (!IsBlocked(tmp))
+   {
+      tiles.push_back(tmp);
+   }
+
+   tmp.x_ += 2;
+   if (!IsBlocked(tmp))
+   {
+      tiles.push_back(tmp);
+   }
+
+   tmp = pos;
+   tmp.y_--;
+   if (!IsBlocked(tmp))
+   {
+      tiles.push_back(tmp);
+   }
+
+   tmp.y_ += 2;
+   if (!IsBlocked(tmp))
+   {
+      tiles.push_back(tmp);
+   }
+
+   return std::vector<Vector2>();
+}
+
+void Grid::ChangeTileColour(Vector2 pos, SDL_Color color)
+{
+   GetTile(pos)->borderColor_ = color;
+}
+
 void Grid::SpawnSpecialTile(Tile::TileType type)
 {
    while (true)
