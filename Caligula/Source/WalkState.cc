@@ -47,9 +47,12 @@ bool WalkState::Update(float dt)
 			{
 			case Tile::TileType::STAR:
 				agent_->hasStar_ = true;	//remove star from grid
+            Service<Grid>::Get()->DeSpawnSpecialTile(Tile::TileType::STAR);
 				break;
 			case Tile::TileType::TRADING:
 				agent_->hasStar_ = false;	//add star to grid
+            Service<Grid>::Get()->SpawnSpecialTile(Tile::TileType::STAR);
+
 				break;
 			case Tile::TileType::SPACESHIP:
 				//state switch?

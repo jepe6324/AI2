@@ -15,7 +15,6 @@ TEST_STATE_1::TEST_STATE_1(SDL_Renderer& p_renderer)
    : m_renderer(&p_renderer)
    , dude_ ("../Assets/astronaut.png", 32,32, nullptr, {0,0})
 {
-   dude_.currentState_ = new WalkState(&dude_);
 	m_sound = Service<SoundHandler>::Get()->CreateSound("../Assets/plopp.wav");
    currentState_ = GameState::EDIT;
 }
@@ -54,5 +53,13 @@ void TEST_STATE_1::Exit()
 
 void TEST_STATE_1::changeState(GameState newState)
 {
+   switch (newState)
+   {
+   case GameState::EDIT:
+      break;
+   case GameState::SIMULATE:
+      dude_.SwitchState(new WalkState(&dude_));
+      break;
+   }
    currentState_ = newState;
 }

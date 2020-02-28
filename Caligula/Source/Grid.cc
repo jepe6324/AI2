@@ -174,6 +174,17 @@ void Grid::SpawnSpecialTile(Tile::TileType type)
    }
 }
 
+void Grid::DeSpawnSpecialTile(Tile::TileType type)
+{
+   Vector2 pos = GetSpecialTilePos(type);
+
+   Tile* tile = GetTile(pos);
+   if (tile != nullptr)
+   {
+      tile->SwitchTileType(Tile::TileType::EMPTY);
+   }
+}
+
 Vector2 Grid::GetSpecialTilePos(Tile::TileType type)
 {
    for (int i = 0; i < tiles_.size(); i++)
