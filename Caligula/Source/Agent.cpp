@@ -27,7 +27,7 @@ Agent::Agent(const char* filepath,
    target_ = Tile::TileType::STAR;
    hasStar_ = false;
 
-   //starSprite_ = Service<SpriteHandler>::Get()->CreateSprite("../Assets/astronautStar.png", 0, 0, widht, height);
+   starSprite_ = Service<SpriteHandler>::Get()->CreateSprite("../Assets/astronautStar.png", 0, 0, width, height);
 }
 
 Agent::~Agent()
@@ -38,7 +38,7 @@ void Agent::Render(SDL_Renderer* renderer_)
 {
    if (hasStar_ == true)
    {
-      SDL_RenderCopy(renderer_, starSprite_->GetTexture(), &sprite_->GetArea(), &drawHelper_);
+      SDL_RenderCopy(renderer_, starSprite_->GetTexture(), &starSprite_->GetArea(), &drawHelper_);
    }
    else 
    {
