@@ -19,6 +19,8 @@ Agent::Agent(const char* filepath,
    position_ = startPos;
    currentState_ = nullptr;
    ChangeState(startState);
+	stamina_ = 100;
+	maxStamina_ = 100;
 
    drawHelper_.w = width;
    drawHelper_.h = height;
@@ -57,7 +59,7 @@ void Agent::Move(Vector2 newPos) {
    if (!Service<Grid>::Get()->IsBlocked(newPos))
    {
      position_= newPos;
-   }
+	}
 }
 
 void Agent::MoveInDirection(Vector2 direction)
