@@ -17,7 +17,7 @@ void Player::Update()
    {
       SelectTile();
    }
-   Service<Grid>::Get()->ChangeTileColor(tileToMove_, { 255,255,0,255 });
+   Service<Grid>::Get()->ChangeTileColor(selected_, { 255,255,0,255 });
 }
 
 void Player::UpdateMouse()
@@ -32,11 +32,11 @@ void Player::UpdateMouse()
 
 void Player::HoverTile()
 {
-   if (hovered_ != nullptr && hovered_ != tileToMove_)
+   if (hovered_ != nullptr && hovered_ != selected_)
       hovered_->borderColor_ = { 255,255,255,255 };
 
    hovered_ = Service<Grid>::Get()->GetTile(mousePos_);
-   if (hovered_ != nullptr && hovered_ != tileToMove_)
+   if (hovered_ != nullptr && hovered_ != selected_)
       hovered_->borderColor_ = { 255,5,0,255 };
 }
 
@@ -49,8 +49,8 @@ void Player::SelectTile()
    if (selected == nullptr)
       return;
 
-   if (tileToMove_ != nullptr){
-      tileToMove_->borderColor_ = { 255,255,255,255 };
+   if (selected_ != nullptr){
+      selected_->borderColor_ = { 255,255,255,255 };
       
       HandleTile(selected);
    }
@@ -70,8 +70,8 @@ void Player::SelectTile()
       }
    }
    
-   if (tileToMove_ != nullptr)
-      tileToMove_->borderColor_ = { 0,255,0,255 };
+   if (selected_ != nullptr)
+      selected_->borderColor_ = { 0,255,0,255 };
 }
 
 void Player::SwitchTiles(Tile* lhs, Tile* rhs)
@@ -84,22 +84,22 @@ void Player::SwitchTiles(Tile* lhs, Tile* rhs)
 
 void Player::HandleTile(Tile* selected)
 {
-   if (tileToMove_ != nullptr)
+   if (selected_ != nullptr)
    {
       
-      if (tileToMove_->currentType_ == selected->currentType_)
+      if (selected_->currentType_ == selected->currentType_)
       {
-         tileToMove_ = nullptr;
+         selected_ = nullptr;
       }
       else
       {
-         SwitchTiles(selected, tileToMove_);
-         tileToMove_ = nullptr;
+         SwitchTiles(selected, selected_);
+         selected_ = nullptr;
       }
    }
    else
    {
-      tileToMove_ = selected;
+      selected_ = selected;
    }
 }
 

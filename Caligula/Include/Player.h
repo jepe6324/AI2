@@ -11,7 +11,7 @@ struct SDL_Color;
 struct Player
 {
    Tile* hovered_;
-   Tile* tileToMove_;
+   Tile* selected_;
    Vector2 mousePos_;
 
    void Update();

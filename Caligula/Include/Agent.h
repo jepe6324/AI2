@@ -7,6 +7,7 @@
 #include "State.h"
 #include "Vector.h"
 #include "Timer.h"
+#include "Tile.h"
 
 #include <SDL_rect.h>
 
@@ -17,13 +18,16 @@ struct Grid;
 
 struct Agent : FSM
 {
-
    Sprite* sprite_;
    SDL_Rect drawHelper_;
    Vector2 position_;
    Vector2 direction_;
 
    AgentState* currentState_;
+
+   Tile::TileType target_;
+   bool hasStar_;
+   Sprite* starSprite_;
 
    Grid* grid_;
 
