@@ -17,6 +17,7 @@ void Player::Update()
    {
       SelectTile();
    }
+   Service<Grid>::Get()->ChangeTileColor(tileToMove_, { 255,255,0,255 });
 }
 
 void Player::UpdateMouse()
@@ -101,3 +102,5 @@ void Player::HandleTile(Tile* selected)
       tileToMove_ = selected;
    }
 }
+
+

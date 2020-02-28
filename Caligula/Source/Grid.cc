@@ -140,9 +140,15 @@ std::vector<Vector2> Grid::GetAdjacentTilePositions(Vector2 pos)
    return tiles;
 }
 
-void Grid::ChangeTileColour(Vector2 pos, SDL_Color color)
+void Grid::ChangeTileColor(Vector2 pos, SDL_Color color)
 {
    GetTile(pos)->borderColor_ = color;
+}
+
+void Grid::ChangeTileColor(Tile* selected, SDL_Color color)
+{
+   if (selected != nullptr)
+      selected->borderColor_ = color;
 }
 
 void Grid::ClearTileColour()

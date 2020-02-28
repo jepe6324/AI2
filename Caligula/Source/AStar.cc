@@ -62,7 +62,7 @@ bool AStar::PathFind(std::vector<Vector2>* path, AStarNode* node)
       while (current->parent_ != nullptr)
       {
          path->push_back(current->cell_);
-         Service<Grid>::Get()->ChangeTileColour(current->cell_, { 0,255,0,255 });
+         Service<Grid>::Get()->ChangeTileColor(current->cell_, { 0,255,0,255 });
          current = current->parent_;
       }
 
@@ -78,7 +78,7 @@ bool AStar::PathFind(std::vector<Vector2>* path, AStarNode* node)
 		if (GetNodeIndex(adjacent.at(i), closed_) == -1 && GetNodeIndex(adjacent.at(i), open_) == -1)
 		{
 			AStarNode* tmp = new AStarNode(adjacent.at(i), goal_, node);
-         Service<Grid>::Get()->ChangeTileColour(tmp->cell_, { 0,0,255,255 });
+         Service<Grid>::Get()->ChangeTileColor(tmp->cell_, { 0,0,255,255 });
 			open_.push_back(tmp);
 		}
 	}
@@ -87,7 +87,7 @@ bool AStar::PathFind(std::vector<Vector2>* path, AStarNode* node)
 	int index = GetNodeIndex(node->cell_, open_);
 	open_.erase(open_.begin() + index);
 	closed_.push_back(node);
-   Service<Grid>::Get()->ChangeTileColour(node->cell_, { 255,0,0,255 });
+   Service<Grid>::Get()->ChangeTileColor(node->cell_, { 255,0,0,255 });
 
 	// Decide nextNode
 	nextNode = GetNextNode();

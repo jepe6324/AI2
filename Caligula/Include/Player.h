@@ -6,6 +6,7 @@
 #include"Vector.h"
 
 struct Tile;
+struct SDL_Color;
 
 struct Player
 {
