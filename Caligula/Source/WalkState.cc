@@ -4,6 +4,7 @@
 #include "Service.h"
 #include "Grid.h"
 #include "TEST_STATE_1.h"
+#include "SleepState.h"
 
 WalkState::WalkState(Agent* agent)
    : actTimer_(0.5f)
@@ -52,13 +53,19 @@ bool WalkState::Update(float dt)
 			case Tile::TileType::TRADING:
 				agent_->hasStar_ = false;	//add star to grid
             Service<Grid>::Get()->SpawnSpecialTile(Tile::TileType::STAR);
-
 				break;
 			case Tile::TileType::SPACESHIP:
-				//state switch?
+            agent_->SwitchState(new SleepState(agent_));
+            return true;
+
 				break;
 			}
 		}
+      else if (path_.empty())
+      {
+         newPath();
+      }
+
 		actTimer_.Reset();
 	}
 	//move timer

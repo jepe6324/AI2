@@ -56,9 +56,16 @@ void TEST_STATE_1::changeState(GameState newState)
    switch (newState)
    {
    case GameState::EDIT:
+      if (Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR).x_ < 0.0f ||
+          Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR).y_ < 0.0f)
+      {
+         Service<Grid>::Get()->SpawnSpecialTile(Tile::TileType::STAR);
+      }
       break;
    case GameState::SIMULATE:
+      dude_.position_ = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
       dude_.SwitchState(new WalkState(&dude_));
+      dude_.hasStar_ = false;
       break;
    }
    currentState_ = newState;

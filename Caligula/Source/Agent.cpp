@@ -18,9 +18,8 @@ Agent::Agent(const char* filepath,
    sprite_ = Service<SpriteHandler>::Get()->CreateSprite(filepath, 0, 0, width, height);
    position_ = startPos;
    currentState_ = nullptr;
-   ChangeState(startState);
-	stamina_ = 100;
-	maxStamina_ = 100;
+	maxStamina_ = 30;
+   stamina_ = maxStamina_;
 
    drawHelper_.w = width;
    drawHelper_.h = height;
@@ -78,7 +77,13 @@ void Agent::MoveInDirection(Vector2 direction)
 	Move(newPos);
 }
 
-void Agent::ChangeState(AgentState* newState)
+void Agent::DropStar()
+{
+   hasStar_ = false;
+   Service<Grid>::Get()->SpawnSpecialTile(Tile::TileType::STAR, position_);
+}
+
+void Agent::SwitchState(AgentState* newState)
 {
    if (currentState_ != nullptr)
    {
@@ -100,6 +105,10 @@ void Agent::Sense()
    if (stamina_ <= 0.1f)
    {
       target_ = Tile::TileType::SPACESHIP;
+      if (hasStar_ == true)
+      {
+         DropStar();
+      }
    }
    else if (hasStar_ == true)
    {

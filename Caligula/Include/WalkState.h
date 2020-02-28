@@ -10,6 +10,8 @@
 
 #include <vector>
 
+struct Agent;
+
 struct WalkState : AgentState
 {
 	std::vector<Vector2> path_;

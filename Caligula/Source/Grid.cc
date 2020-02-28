@@ -161,6 +161,11 @@ void Grid::ClearTileColour()
 
 void Grid::SpawnSpecialTile(Tile::TileType type)
 {
+   if (GetSpecialTilePos(type).x_ >= 0.0f ||
+       GetSpecialTilePos(type).y_ >= 0.0f)
+   {
+      return;
+   }
    while (true)
    {
       int index = Random::Rand(0, tiles_.size() - 1);
@@ -170,6 +175,28 @@ void Grid::SpawnSpecialTile(Tile::TileType type)
       {
          tiles_.at(index)->SwitchTileType(type);
          return;
+      }
+   }
+}
+
+void Grid::SpawnSpecialTile(Tile::TileType type, Vector2 pos)
+{
+   if (GetTile(pos)->currentType_ == Tile::TileType::BLOCKED ||
+       GetTile(pos)->currentType_ == Tile::TileType::EMPTY)
+   {
+      GetTile(pos)->SwitchTileType(type);
+   }
+   else
+   {
+      std::vector<Vector2> adj = GetAdjacentTilePositions(pos);
+
+      for (int i = 0; i < adj.size(); i++)
+      {
+         if (GetTile(pos)->currentType_ == Tile::TileType::EMPTY)
+         {
+            GetTile(pos)->SwitchTileType(type);
+            return;
+         }
       }
    }
 }

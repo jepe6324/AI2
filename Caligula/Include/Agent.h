@@ -43,13 +43,15 @@ struct Agent : FSM
 
 	void Render(SDL_Renderer* renderer_);
    void Update(float dt);
-   void ChangeState(AgentState* newState);
+   void SwitchState(AgentState* newState);
 	
    void Sense();
    void Decide();
 
    void Move(Vector2 newPos);
    void MoveInDirection(Vector2 direction);
+
+   void DropStar();
 };
 
 #endif //!AGENT_H_INCLUDED
