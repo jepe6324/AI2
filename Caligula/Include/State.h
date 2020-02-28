@@ -28,4 +28,5 @@ struct AgentState : State
    ~AgentState() {};
 
    virtual bool Update(float dt) = 0;
+   bool Update() { return true; }
 };

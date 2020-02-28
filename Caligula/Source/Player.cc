@@ -6,6 +6,7 @@
 #include "Service.h"
 #include "InputHandler.h"
 #include "Grid.h"
+#include "TEST_STATE_1.h"
 
 void Player::Update()
 {
@@ -20,11 +21,7 @@ void Player::Update()
    Service<Grid>::Get()->ChangeTileColor(selected_, { 255,255,0,255 });
 	if (Service<InputHandler>::Get()->IsKeyPressed(SDL_SCANCODE_SPACE))
 	{
-		/*
-		Call A* and do the calculation
-		start simulation
-		?stop being able to change blocks?
-		*/
+      Service<TEST_STATE_1>::Get()->changeState(TEST_STATE_1::GameState::SIMULATE);
 	}
 }
 

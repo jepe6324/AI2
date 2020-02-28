@@ -97,8 +97,7 @@ void Agent::ChangeState(AgentState* newState)
 
 void Agent::Sense()
 {
-   /* 
-   if (fatigue_ <= 0.1f)
+   if (stamina_ <= 0.1f)
    {
       target_ = Tile::TileType::SPACESHIP;
    }
@@ -108,9 +107,8 @@ void Agent::Sense()
    }
    else
    {
-      target_ = Tile::TileTYpe::STAR;
+      target_ = Tile::TileType::STAR;
    }
-   */
 }
 
 void Agent::Decide()

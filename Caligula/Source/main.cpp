@@ -51,14 +51,15 @@ int main(int ac, char** av)
 		SoundHandler soundHandler;
       Grid grid;
 
-		Service<SpriteHandler>::Set(&spriteHandler);
-		Service<InputHandler>::Set(&inputHandler);
-		Service<SoundHandler>::Set(&soundHandler);
+      Service<SpriteHandler>::Set(&spriteHandler);
+      Service<InputHandler>::Set(&inputHandler);
+      Service<SoundHandler>::Set(&soundHandler);
       Service<Grid>::Set(&grid);
 
-		FSM stateMachine;
-		TEST_STATE_1 stateOne(*renderer);
-		stateMachine.SwitchState(&stateOne);
+      FSM stateMachine;
+      TEST_STATE_1 stateOne(*renderer);
+      stateMachine.SwitchState(&stateOne);
+      Service<TEST_STATE_1>::Set(&stateOne);
 
 		bool running = true;
 		while (running)

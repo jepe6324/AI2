@@ -158,6 +158,7 @@
     <ClCompile Include="Source\Mouse.cpp" />
     <ClCompile Include="Source\Player.cc" />
     <ClCompile Include="Source\Random.cc" />
+    <ClCompile Include="Source\SleepState.cc" />
     <ClCompile Include="Source\Sound.cpp" />
     <ClCompile Include="Source\SoundHandler.cpp" />
     <ClCompile Include="Source\Sprite.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Source\TEST_STATE_1.cpp" />
     <ClCompile Include="Source\Tile.cc" />
     <ClCompile Include="Source\Timer.cc" />
+    <ClCompile Include="Source\WalkState.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Agent.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="Include\Player.h" />
     <ClInclude Include="Include\Random.h" />
     <ClInclude Include="Include\Service.h" />
+    <ClInclude Include="Include\SleepState.h" />
     <ClInclude Include="Include\Sound.h" />
     <ClInclude Include="Include\SoundHandler.h" />
     <ClInclude Include="Include\Sprite.h" />
@@ -188,6 +191,7 @@
     <ClInclude Include="Include\DeltaTime.h" />
     <ClInclude Include="Include\Timer.h" />
     <ClInclude Include="Include\Vector.h" />
+    <ClInclude Include="Include\WalkState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

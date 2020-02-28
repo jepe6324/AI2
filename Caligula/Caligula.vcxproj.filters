@@ -99,6 +99,12 @@
     <ClCompile Include="Source\AStar.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\WalkState.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SleepState.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Config.h">
@@ -162,6 +168,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\AStar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\WalkState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\SleepState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

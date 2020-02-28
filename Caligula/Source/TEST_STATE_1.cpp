@@ -9,12 +9,15 @@
 #include <time.h>
 #include "Random.h"
 
+#include "WalkState.h"
 
 TEST_STATE_1::TEST_STATE_1(SDL_Renderer& p_renderer) 
    : m_renderer(&p_renderer)
    , dude_ ("../Assets/astronaut.png", 32,32, nullptr, {0,0})
 {
+   dude_.currentState_ = new WalkState(&dude_);
 	m_sound = Service<SoundHandler>::Get()->CreateSound("../Assets/plopp.wav");
+   currentState_ = GameState::EDIT;
 }
 
 void TEST_STATE_1::Enter()
@@ -29,23 +32,27 @@ void TEST_STATE_1::Enter()
 bool TEST_STATE_1::Update()
 {
    deltaTime_.Update();
-
-   Service<Grid>::Get()->ClearTileColour();
-
-   dude_.Update(deltaTime_.AsSeconds());
-   player_.Update();
-
-	Vector2 ship = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::SPACESHIP);
-	Vector2 star = Service<Grid>::Get()->GetSpecialTilePos(Tile::TileType::STAR);
-
-	path_ = aStar_.PathFindStart(ship, star);
-
    Service<Grid>::Get()->Render(m_renderer);
-   dude_.Render(m_renderer);
+
+   switch (currentState_) {
+   case GameState::EDIT:
+      player_.Update();
+      break;
+   case GameState::SIMULATE:
+      dude_.Update(deltaTime_.AsSeconds());
+      dude_.Render(m_renderer);
+      break;
+   }
+
 	return true;
 }
 
 void TEST_STATE_1::Exit()
 {
 	std::cout << "TEST_STATE_1::Exit" << std::endl;
+}
+
+void TEST_STATE_1::changeState(GameState newState)
+{
+   currentState_ = newState;
 }

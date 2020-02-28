@@ -3,24 +3,38 @@
 
 #include "Service.h"
 #include "Grid.h"
+#include "TEST_STATE_1.h"
+
+WalkState::WalkState(Agent* agent)
+   : actTimer_(0.5f)
+{
+   agent_ = agent;
+}
 void WalkState::Enter()
 {
-	path_ = aStar_.PathFindStart(agent_->position_, Service<Grid>::Get()->GetSpecialTilePos(agent_->target_));
-	actTimer_.initialValue_ = 2;
-	actTimer_.currentValue_ = 1;
+   newPath();
+   target_ = agent_->target_;
+	actTimer_.currentValue_ = actTimer_.initialValue_ / 2.0f;
 }
 
 void WalkState::Exit()
 {
 	path_.clear();
+   Service<Grid>::Get()->ClearTileColour();
 }
 
 bool WalkState::MoveTowardsTarget()
 {
-	agent_->Move(path_.at(path_.size() - 1));
-	path_.pop_back();
-	
-	return path_.empty();
+   if (!path_.empty())
+   {
+	   agent_->Move(path_.at(path_.size() - 1));
+	   path_.pop_back();
+   }
+   if (agent_->position_ == Service<Grid>::Get()->GetSpecialTilePos(target_))
+   {
+	   return true;
+   }
+   return false;
 }
 
 bool WalkState::Update(float dt)
@@ -46,9 +60,25 @@ bool WalkState::Update(float dt)
 	}
 	//move timer
 
+   if (target_ != agent_->target_)
+   {
+      path_.clear();
+      newPath();
+      target_ = agent_->target_;
+   }
+
+   agent_->stamina_ -= dt;
+
+
+   return true;
 }
 
 void WalkState::newPath()
 {
+   Service<Grid>::Get()->ClearTileColour();
 	path_ = aStar_.PathFindStart(agent_->position_, Service<Grid>::Get()->GetSpecialTilePos(agent_->target_));
+   if (path_.empty())
+   {
+      Service<TEST_STATE_1>::Get()->changeState(TEST_STATE_1::GameState::EDIT);
+   }
 }

@@ -6,6 +6,7 @@
 #include "Vector.h"
 #include "AStar.h"
 #include "Timer.h"
+#include "Tile.h"
 
 #include <vector>
 
@@ -15,6 +16,9 @@ struct WalkState : AgentState
 	AStar aStar_;
 	Timer actTimer_;
 	int currentPathIndex_;
+   Tile::TileType target_;
+
+   WalkState(Agent* agent);
 
 	void Enter();
 	void Exit();
