@@ -18,6 +18,14 @@ void Player::Update()
       SelectTile();
    }
    Service<Grid>::Get()->ChangeTileColor(selected_, { 255,255,0,255 });
+	if (Service<InputHandler>::Get()->IsKeyPressed(SDL_SCANCODE_SPACE))
+	{
+		/*
+		Call A* and do the calculation
+		start simulation
+		?stop being able to change blocks?
+		*/
+	}
 }
 
 void Player::UpdateMouse()

@@ -22,6 +22,9 @@ struct Agent : FSM
    SDL_Rect drawHelper_;
    Vector2 position_;
    Vector2 direction_;
+	float stamina_;
+	float maxStamina_;
+	
 
    AgentState* currentState_;
 
